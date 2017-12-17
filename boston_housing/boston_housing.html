@@ -11806,7 +11806,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import libraries necessary for this project</span>
@@ -11841,7 +11841,9 @@ div#notebook {
 <div class="prompt"></div>
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/francescobattocchio/py3/lib/python3.6/site-packages/sklearn/learning_curve.py:23: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
+<pre>/Users/francescobattocchio/py3/lib/python3.6/site-packages/sklearn/cross_validation.py:44: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. Also note that the interface of the new CV iterators are different from that of this module. This module will be removed in 0.20.
+  &#34;This module will be removed in 0.20.&#34;, DeprecationWarning)
+/Users/francescobattocchio/py3/lib/python3.6/site-packages/sklearn/learning_curve.py:23: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the functions are moved. This module will be removed in 0.20
   DeprecationWarning)
 </pre>
 </div>
@@ -11890,23 +11892,23 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Minimum price of the data</span>
-<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<span class="n">minimum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amin</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Maximum price of the data</span>
-<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">maximum_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Mean price of the data</span>
-<span class="n">mean_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">mean_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Median price of the data</span>
-<span class="n">median_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">median_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># TODO: Standard deviation of prices of the data</span>
-<span class="n">std_price</span> <span class="o">=</span> <span class="n">prices</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
+<span class="n">std_price</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">prices</span><span class="p">)</span>
 
 <span class="c1"># Show the calculated statistics</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Statistics for Boston housing dataset:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
@@ -11935,7 +11937,7 @@ Minimum price: $105,000.00
 Maximum price: $1,024,800.00
 Mean price: $454,342.94
 Median price $438,900.00
-Standard deviation of prices: $165,340.28
+Standard deviation of prices: $165,171.13
 </pre>
 </div>
 </div>
@@ -13296,7 +13298,8 @@ Think about the pros and cons of adding more training points based on if the tra
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
-Let's consider max_depth=3, which gives the best generalisation of the model to the dataset. The score of both training and testing coverges to 0.8 after 300 training points. In this case adding more training points has no additional benefits for the performance of the model, while it has the drawback to increase the computational time of training.</p>
+Let's consider max_depth=3, which gives the best generalisation of the model to the dataset. Initially the training score decreases as more training data are introduced, while the testing score increases. This because it is usually easy to train a model in a reduced number of data but the results of the mdel are not in general representative of the full dataset.</p>
+<p>The score of both training and testing coverges to 0.8 after 300 training points, as a representative portion of the dataset has been explored. In this case adding more training points has no additional benefits for the performance of the model, while it has the drawback to increase the computational time of training.</p>
 
 </div>
 </div>
@@ -13901,7 +13904,7 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># TODO: Import &#39;make_scorer&#39;, &#39;DecisionTreeRegressor&#39;, and &#39;GridSearchCV&#39;</span>
@@ -13919,10 +13922,10 @@ For the <code>fit_model</code> function in the code cell below, you will need to
     <span class="n">cv_sets</span> <span class="o">=</span> <span class="n">ShuffleSplit</span><span class="p">(</span><span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">n_iter</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=</span> <span class="mf">0.20</span><span class="p">,</span> <span class="n">random_state</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 
     <span class="c1"># TODO: Create a decision tree regressor object</span>
-    <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">()</span>
+    <span class="n">regressor</span> <span class="o">=</span> <span class="n">DecisionTreeRegressor</span><span class="p">(</span><span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
 
     <span class="c1"># TODO: Create a dictionary for the parameter &#39;max_depth&#39; with a range from 1 to 10</span>
-    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)}</span>
+    <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">)}</span>
 
     <span class="c1"># TODO: Transform &#39;performance_metric&#39; into a scoring function using &#39;make_scorer&#39; </span>
     <span class="n">scoring_fnc</span> <span class="o">=</span> <span class="n">make_scorer</span><span class="p">(</span><span class="n">performance_metric</span><span class="p">)</span>
@@ -13940,55 +13943,6 @@ For the <code>fit_model</code> function in the code cell below, you will need to
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt"></div>
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/Users/francescobattocchio/py3/lib/python3.6/site-packages/sklearn/grid_search.py:43: DeprecationWarning: This module was deprecated in version 0.18 in favor of the model_selection module into which all the refactored classes and functions are moved. This module will be removed in 0.20.
-  DeprecationWarning)
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;max_depth&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)}</span>
-<span class="n">params</span><span class="p">[</span><span class="s1">&#39;max_depth&#39;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-<div class="prompt output_prompt">Out[28]:</div>
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([1, 2, 3, 4, 5, 6, 7, 8, 9])</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -14241,7 +14195,7 @@ Range in prices: $73,357.39
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer: </strong>
 The model learns from the data on which it is trained. As a consequence, if the data are not representative of the current Boston house market or if some significant features are missing (such as wether or not it has a swimming pool, or if it is near a train station for commuting), then the predictions of the model are not in line with real-world house market. Moreover, the model is specific to the location where the data are collected, for this reason it is likely to be accurate only for Boston suburbs.</p>
-<p>In general, if the data used for the prediction are not consistent with the data used for training, than the model shall not be used. The fact that the range of prediction with training on different sets is wide, might suggest that the data are noisy, which decrease the reliability of a prediction.  Nevertheless, despite the fact that the model might not be perfect, it can give a useful rough estimate of a house price which than can be refined manually. For instance, the range of prices shown above can give an indication of the upper and lower limits of the price of a house with that particular set of features.</p>
+<p>The fact that the range of prediction with training on different sets is wide, might suggest that the data are noisy, which decrease the reliability of a prediction. As it stands, if the aim of the model is to return an estimate of the price with an accuracy of say \$5,000 then it shall not be used by a real estate agent. Nevertheless, despite the fact that the model might not be perfect, it can give a useful rough estimate of a house price which than can be refined with additional research. For instance, the range of prices shown above can give an indication of the upper and lower limits of the price of a house with that particular set of features.</p>
 
 </div>
 </div>

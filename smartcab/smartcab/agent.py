@@ -26,8 +26,8 @@ class LearningAgent(Agent):
 
         self.n_trials = 0       # ADDED: count number of trials
         self.maxQ = maxQ
-        self.a = 0.025            # ADDED: rate of non linear epsilon decay
-        self.delta = 0.025       # ADDED: rate of linear epsilon decay
+        self.a = 0.005             # ADDED: rate of non linear epsilon decay
+        self.delta = 0.05       # ADDED: rate of linear epsilon decay
 
 
     def reset(self, destination=None, testing=False):
@@ -83,7 +83,7 @@ class LearningAgent(Agent):
         
         # Set 'state' as a tuple of relevant data for the agent
         # state = (waypoint, inputs['light'], inputs['oncoming']) # to reduce the possible states
-        state = (waypoint, inputs['light'], inputs['oncoming'])
+        state = (waypoint, inputs['light'], inputs['oncoming'], inputs['left'])
         # print ('state is from build_state:', state)
         return state
 
@@ -229,7 +229,7 @@ def run():
     #   display      - set to False to disable the GUI if PyGame is enabled
     #   log_metrics  - set to True to log trial and simulation results to /logs
     #   optimized    - set to True to change the default log file name
-    sim = Simulator(env, update_delay=0.01, log_metrics=True, optimized=True)
+    sim = Simulator(env, update_delay=0.01, log_metrics=True, optimized=True, display=False)
     
     ##############
     # Run the simulator

@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="22153aee-02f6-4cf0-8db4-6cd378f45c91" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change beforePath="$PROJECT_DIR$/../logs/sim_default-learning.csv" afterPath="$PROJECT_DIR$/../logs/sim_default-learning.csv" />
+      <change beforePath="$PROJECT_DIR$/../logs/sim_default-learning.txt" afterPath="$PROJECT_DIR$/../logs/sim_default-learning.txt" />
+      <change beforePath="$PROJECT_DIR$/../logs/sim_improved-learning.csv" afterPath="$PROJECT_DIR$/../logs/sim_improved-learning.csv" />
+      <change beforePath="$PROJECT_DIR$/../logs/sim_improved-learning.txt" afterPath="$PROJECT_DIR$/../logs/sim_improved-learning.txt" />
       <change beforePath="$PROJECT_DIR$/../smartcab.ipynb" afterPath="$PROJECT_DIR$/../smartcab.ipynb" />
       <change beforePath="$PROJECT_DIR$/agent.py" afterPath="$PROJECT_DIR$/agent.py" />
     </list>
@@ -28,8 +31,8 @@
       <file leaf-file-name="agent.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/agent.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="469">
-              <caret line="242" column="9" lean-forward="true" selection-start-line="242" selection-start-column="9" selection-end-line="242" selection-end-column="9" />
+            <state relative-caret-position="3024">
+              <caret line="238" column="20" lean-forward="false" selection-start-line="238" selection-start-column="20" selection-end-line="238" selection-end-column="20" />
               <folding>
                 <element signature="e#0#13#0" expanded="true" />
               </folding>
@@ -499,8 +502,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/agent.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="469">
-          <caret line="242" column="9" lean-forward="true" selection-start-line="242" selection-start-column="9" selection-end-line="242" selection-end-column="9" />
+        <state relative-caret-position="3024">
+          <caret line="238" column="20" lean-forward="false" selection-start-line="238" selection-start-column="20" selection-end-line="238" selection-end-column="20" />
           <folding>
             <element signature="e#0#13#0" expanded="true" />
           </folding>

@@ -7,16 +7,7 @@ through two different reinforcement learning methods: DQN and Policy Gradient.
 In Pong an agent and his opponent control a paddle, and the game consists of 
 bouncing a ball past the other player. At each time step the agent observes a 
 pixel image and chooses between two actions, Up or Down, then he receives a 
-reward based on whether or not the ball went past the opponent. The reward is 
-+1 if the ball went past the opponent, -1 if it went past the agent. In the 
-original [DeepMind implementation] the states consist 
-of the last 4 $84 \times 84$ pixels frames observed by the agent, which results 
-on $256^{84 \times 84 \times 4} \approx 1.4 \times 10^{67970}$ different 
-combinations. In such a large state space the state-value function $Q^{\pi}(s,a) $ 
-or the policy  $\pi(s,a)$ cannot the stored in a table, but needs to be 
-approximated by a NN. Such NN often requires several layers to beat the opponent 
-consistently, which is the reason why this approach is called deep reinforcement 
-learning. 
+reward based on whether or not the ball went past the opponent. 
 
 ### Installation
 In Anaconda create an environment called `deep-rl` as:

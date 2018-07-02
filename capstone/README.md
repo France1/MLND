@@ -1,5 +1,4 @@
-## Udacity MLND Capstone Project: Learn to play Atari through Deep Reinforcement 
-Learning
+## Udacity MLND Capstone Project: Learn to play Atari through Deep Reinforcement Learning
 
 ### Motivation
 The aim of this project is to train a RL agent to play the Atari 2600 game Pong 
